@@ -3,7 +3,10 @@
 // # HomeCtrl specifically. This is basically how we tell
 // # Angular about the existence of our application.
 
-this.activity = angular.module('activity', []);
+this.activity = angular.module('activity', ['ui.bootstrap']);
+
+
+//angular.module('mean').config(
 
 // # This routing directive tells Angular about the default
 // # route for our application. The term "otherwise" here
@@ -27,3 +30,8 @@ this.activity.config([
   }
 ]);
 
+this.activity.config([
+  "$httpProvider", function($httpProvider) {
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+  }
+]);

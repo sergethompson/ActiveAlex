@@ -28,13 +28,13 @@ this.activity.controller('ActivityIndexCtrl', [
 		};
 
 
+
+
+
 		return $http.get('./activities.json').success(function(data) {
 			return $scope.activities = data;
 		});
 
-
-
-
-
 	}
 	]);
+
